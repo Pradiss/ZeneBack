@@ -12,7 +12,7 @@ class Perfil {
 
 
     public function getAll(){
-        $result = $this->db->prepare("SELECT * FROM usuarios");
+        $result = $this->db->query("SELECT * FROM usuarios");
 
         
         return $result->fetchAll(PDO::FETCH_ASSOC);

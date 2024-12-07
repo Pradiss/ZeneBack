@@ -2,27 +2,24 @@
 
 $user = "";
 
-foreach($result_perfil as $perfil){
+    $idUsuario = $result_perfil["idUsuario"];
+    $nome = $result_perfil["nome"];
+    $usuario = $result_perfil["usuario"];
+    $idade = $result_perfil["idade"];
+    $descricao = $result_perfil["descricao"];
+    $foto = $result_perfil["foto"];
+    $email = $result_perfil["email"];
+    $cidade = $result_perfil["cidade"];
+    $uf = $result_perfil["uf"];
+    $telefone = $result_perfil["telefone"];
+    $idInstrumento = $result_perfil["idInstrumento"];
+    $idCategoria = $result_perfil["idCategoria"];
+    $idBanda = $result_perfil["idBanda"];
+    $idSocial = $result_perfil["idSocial"];
 
-    $nome = $perfil["nome"];
-    $usuario = $perfil["usuario"];
-    $idade = $perfil["idade"];
-    $descricao = $perfil["descricao"];
-    $foto = $perfil["foto"];
-    $email = $perfil["email"];
-    $cidade = $perfil["cidade"];
-    $uf = $perfil["uf"];
-    $telefone = $perfil["telefone"];
-    $idInstrumento = $perfil["idInstrumento"];
-    $idCategoria = $perfil["idCategoria"];
-    $idBanda = $perfil["idBanda"];
-    $idSocial = $perfil["idSocial"];
 
-
-    $user.="
-    <div class='container '>
-      <div class='main-body'>
-            <div class='row '>
+    $user="
+            <div class='row gutters-sm'>
               <div class='col-sm-12 col-md-4 mb-3'>
                 <div class='card '>
                   <div class='card-body rounded '>
@@ -37,8 +34,30 @@ foreach($result_perfil as $perfil){
                       </div>
                   </div>
                 </div>
-                
-              </div>
+              
+
+                <div class='card mt-3 text-light '>
+                    <ul class='list-group list-group-flush'>
+                      <li class='list-group-item d-flex justify-content-between align-items-center flex-wrap'>
+                        <h6 class='mb-0'><i class='mx-1 bi bi-whatsapp'></i>whatsapp</h6>
+                        <span class='text-secondary'>(55)$telefone</span>
+                      </li>
+                      <li class='list-group-item d-flex justify-content-between align-items-center flex-wrap'>
+                        <h6 class='mb-0'><i class='mx-1 bi bi-instagram'></i>Instagram</h6>
+                        <span class='text-secondary'>JohnS</span>
+                      </li>
+                      <li class='list-group-item d-flex justify-content-between align-items-center flex-wrap'>
+                        <h6 class='mb-0'><i class='mx-1 bi bi-facebook'></i>Facebook</h6>
+                        <span class='text-secondary'>JohnS</span>
+                      </li>
+                      <li class='list-group-item d-flex justify-content-between align-items-center flex-wrap'>
+                        <h6 class='mb-0'><i class='mx-1 bi bi-tiktok'></i>Tik-Tok</h6>
+                        <span class='text-secondary'>JohnS</span>
+                      </li>
+                    </ul>
+                    </div>
+                </div>
+
                <div class='col-md-8 '>
                
                 <div class='card text-dark '>
@@ -93,7 +112,16 @@ foreach($result_perfil as $perfil){
                         <h6 class='mb-0'>Cidade</h6>
                       </div>
                       <div class='col-sm-9 text-secondary'>
-                        $cidade - $uf
+                        $cidade
+                      </div>
+                    </div>
+                    <hr>
+                    <div class='row'>
+                      <div class='col-sm-3'>
+                        <h6 class='mb-0'>Estado</h6>
+                      </div>
+                      <div class='col-sm-9 text-secondary'>
+                        $uf
                       </div>
                     </div>
                     <hr>
@@ -115,21 +143,19 @@ foreach($result_perfil as $perfil){
                       </div>
                     </div>
                     <hr>
-                    <div class='row'>
-                      <div class='col-sm-12'>
-                        <a class='btn btn-primary  href='[[base-url]]/perfil/editar'>Editar Dados</a>
-                      </div>
-                    </div>
+                    <div class='row mt-3'>
+                 <div class='col-sm-12'>
+                   <a class='btn btn-primary'  href='[[base-url]]/perfil/editar/$idUsuario'>Editar Dados</a>
+                   </div>
+                 </div>
                   </div>
                 </div>
               </div>
             </div>
-      </div>
-    </div>
     ";
 
 
-}
+
 
 
 

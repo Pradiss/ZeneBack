@@ -15,7 +15,8 @@ class PerfilController{
     }
 
     public function index(){
-        $result_perfil = $this->usuarioModel->getAll();
+        $sessao = $_SESSION["idUsuario"];
+        $result_perfil = $this->usuarioModel->getById($sessao);
     
         $baseUrl = $this->url;
 
@@ -45,10 +46,32 @@ class PerfilController{
 
             $this->usuarioModel->insert($nome,$usuario,$senha);
         }
+        
 
+        header("location: " . $this->url. "/home");
+    }
 
-        header("location: " . $this->url . "/home");
+    public function editar($idUsuario){
+        $perfil = $this->usuarioModel->getById($idUsuario);
+        $nome = $perfil["nome"];
+        $descricao = $perfil["descricao"];
+        $usuario = $perfil["usuario"];
+        $idBanda = $perfil["idBanda"];
+        $email = $perfil["email"];
+        $telefone = $perfil["telefone"];
+        $cidade = $perfil["cidade"];
+        $idInstrumento = $perfil["idInstrumento"];
+        $idCategoria = $perfil["idCategoria"];
+        $foto = $perfil["foto"];
+        $idade = $perfil["idade"];
+
+        
+        
+        $baseUrl = $this->url;
+        $acao = "editar";
+        require "views/PerfilEditar.php";
     }
 
 
+   
 }

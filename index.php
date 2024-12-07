@@ -13,12 +13,12 @@ $identificador = isset($segmentos[2]) ? $segmentos[2] : null;
 
 
 switch($controlador){
-    case "perfil" :
-       
+    
+    case "perfil":
         require "controllers/PerfilController.php";
         $controller = new PerfilController();
         break;
-    case "login" :
+    case "login":
 
         require "controllers/LoginController.php";
         $controller = new LoginController();

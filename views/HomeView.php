@@ -4,6 +4,7 @@ $card = "";
 
 foreach($result_user as $user){
 
+    $idUsuario = $user["idUsuario"];
     $nome = $user["nome"];
     $idade = $user["idade"];
     $cidade = $user["cidade"];
@@ -21,9 +22,12 @@ foreach($result_user as $user){
             <h5 class='card-title'>$nome</h5>
             <p class='text-secondary mb-1'>$idInstrumento | $idCategoria </p>
             <p class='card-text'>$cidade | $uf </p>
-            <a href='[[base-url]]' class='btn btn-primary'>Perfil</a>
+            <a href='[[base-url]]/perfil/$idUsuario' class='btn btn-primary'>Perfil</a>
         </div>
     </div>
+
+
+    
     ";
 }
 

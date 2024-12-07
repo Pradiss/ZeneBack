@@ -12,7 +12,7 @@ class Login{
     public function getByUsuario($usuario,$senhaDoUsuario){
         $sql = $this->db->prepare("SELECT * FROM usuarios WHERE usuario = ?");
         $sql->execute([$usuario]);
-        return $sql->fetch(PDO::FETCH_ASSOC);
+        $resultado = $sql->fetch(PDO::FETCH_ASSOC);
     
         if($resultado){
 
@@ -20,6 +20,7 @@ class Login{
             if(password_verify($senhaDoUsuario, $senhaDoBanco)){
                 
                 $_SESSION["nome_usuario"] = $resultado["nome"];
+                $_SESSION["idUsuario"] = $resultado["idUsuario"];
               
               
                 return true;

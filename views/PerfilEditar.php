@@ -15,12 +15,12 @@ echo $header ;
       <p class="text-center fs-3">Zene</p>
       <div class="card mb-4 rounded-3 shadow-sm ">
          <div class="card-header bg-secondary py-3">
-            <h4 class="my-0 fw-normal text-white">Cadastro</h4>
+            <h4 class="my-0 fw-normal text-white">Edite sua conta</h4>
          </div>
          <div class="card-body p-4">
 
 
-            <form id="form2" name="form2" method="post" action="<?= $baseUrl ?>/perfil/editar<?= $idUsuario ?>">
+            <form id="form" name="form" method="post" action="<?= $baseUrl ?>/perfil/editar/<?= $idUsuario ?>">
                <div class="form-floating mb-3">
                   <input type="text" name="nome" id="nome" class="form-control"  >
                   <label for="nome">Nome:</label>

@@ -52,18 +52,18 @@ class PerfilController{
     }
 
     public function editar($idUsuario){
-        $perfil = $this->usuarioModel->getById($idUsuario);
-        $nome = $perfil["nome"];
-        $descricao = $perfil["descricao"];
-        $usuario = $perfil["usuario"];
-        $idBanda = $perfil["idBanda"];
-        $email = $perfil["email"];
-        $telefone = $perfil["telefone"];
-        $cidade = $perfil["cidade"];
-        $idInstrumento = $perfil["idInstrumento"];
-        $idCategoria = $perfil["idCategoria"];
-        $foto = $perfil["foto"];
-        $idade = $perfil["idade"];
+        $result_perfil = $this->usuarioModel->getById($idUsuario);
+        $nome = $result_perfil["nome"];
+        $descricao = $result_perfil["descricao"];
+        $usuario = $result_perfil["usuario"];
+        $idBanda = $result_perfil["idBanda"];
+        $email =$result_perfil["email"];
+        $telefone = $result_perfil["telefone"];
+        $cidade =$result_perfil["cidade"];
+        $idInstrumento = $result_perfil["idInstrumento"];
+        $idCategoria = $result_perfil["idCategoria"];
+        $foto = $result_perfil["foto"];
+        $idade = $result_perfil["idade"];
 
         
         

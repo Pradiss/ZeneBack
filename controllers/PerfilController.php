@@ -20,7 +20,7 @@ class PerfilController{
         if($sessao > 0){
             $result_perfil = $this->usuarioModel->getById($sessao);
         }else{
-            $sessao = $_SESSION["usuarioNome"];
+            $sessao = $_SESSION["usuarioUser"];
             $result_perfil = $this->usuarioModel->getUsuario($sessao);
         }
     
@@ -79,8 +79,9 @@ class PerfilController{
     }
 
     public function sair(){
-        unset($_SESSION["nomeUsuario"]);
+        unset($_SESSION["usuarioUser"]);
         unset($_SESSION["idUsuario"]);
+        unset($_SESSION["nome_usuario"]);
         $_SESSION = [];
         header("location: " . $this->url . "login");
     }

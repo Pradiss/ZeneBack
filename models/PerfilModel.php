@@ -32,7 +32,7 @@ class Perfil {
         $sql->execute([$nome,$usuario,$senhaCriptografada]);
 
         if($usuario){
-            $_SESSION["usuarioNome"] = $usuario;
+            $_SESSION["usuarioUser"] = $usuario;
             return true;
         }
         $_SESSION["erro"] = "Não foi possível acessar o perfil";

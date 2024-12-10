@@ -43,6 +43,7 @@ class LoginController {
         }else{
 
             header("location: " . $this->url . "/home" );
+            unset($_SESSION["usuarioNome"]);
         }
     }
 

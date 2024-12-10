@@ -42,7 +42,7 @@
                
                <button type="submit" id="btnAcessar" name="btnAcessar" class="w-100 btn btn-lg btn-primary">Criar</button>
                <input type="hidden" name="acao" value="<?= $acao?>">
-                <input type="hidden" name="idUsuario" value="<?= $idUsuario?>">
+               
             </form>
 
          </div>

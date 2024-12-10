@@ -15,11 +15,17 @@ class PerfilController{
     }
 
     public function index(){
-        $sessao = $_SESSION["idUsuario"];
-        $result_perfil = $this->usuarioModel->getById($sessao);
+        $sessao = isset($_SESSION['idUsuario']) ? $_SESSION["idUsuario"] : 0;
+           
+        if($sessao > 0){
+            $result_perfil = $this->usuarioModel->getById($sessao);
+        }else{
+            $sessao = $_SESSION["usuarioNome"];
+            $result_perfil = $this->usuarioModel->getUsuario($sessao);
+        }
     
+        // echo $_SESSION["usuarioNome"];
         $baseUrl = $this->url;
-
         require "views/PerfilView.php";
     }
 
@@ -35,16 +41,16 @@ class PerfilController{
         $nome = $_POST["nome"];
         $usuario = $_POST["usuario"];
         $senha = $_POST["senha"];
+        $idUsuario = $_POST["idUsuario"];
 
 
         $acao = $_POST["acao"];
 
         if($acao == "editar"){
-            $idUsuario = $_POST["idUsuario"];
             $this->usuarioModel->update($idUsuario,$senha,$usuario);
         }else{
-
-            $this->usuarioModel->insert($nome,$usuario,$senha);
+            $this->usuarioModel->insert($nome,$usuario,$senha, $idUsuario);
+            // $this->usuarioModel->getUsuario($usuario);
         }
         
 
@@ -72,6 +78,12 @@ class PerfilController{
         require "views/PerfilEditar.php";
     }
 
+    public function sair(){
+        unset($_SESSION["nomeUsuario"]);
+        unset($_SESSION["idUsuario"]);
+        $_SESSION = [];
+        header("location: " . $this->url . "login");
+    }
 
    
 }

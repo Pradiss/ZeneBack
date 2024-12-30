@@ -4,6 +4,9 @@ $header = file_get_contents("views/templates/html/header.html");
 $footer = file_get_contents("views/templates/html/footer.html");
 $html = file_get_contents("views/templates/html/perfil.html");
 
+
+$header= str_replace("[[base-url]]",$baseUrl,$header);
+
 echo $header ;
 
 ?>
@@ -11,7 +14,7 @@ echo $header ;
  <div class="container mt-5">
 
 <div class="row d-flex justify-content-center">
-   <div class="col-md-5">
+   <div class="col-md-8 ">
       <p class="text-center fs-3">Zene</p>
       <div class="card mb-4 rounded-3 shadow-sm ">
          <div class="card-header bg-secondary py-3">

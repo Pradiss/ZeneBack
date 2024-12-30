@@ -26,12 +26,12 @@ class Perfil {
     }
 
 
-    public function insert($nome,$usuario,$senha){
+    public function insert($nome,$usuario,$senha,$idade,$descricao,$foto,$email,$cidade,$uf,$telefone,$idInstrumento,$idCategoria,$idBanda,$idSocial){
 
         $senhaCriptografada = password_hash($senha,PASSWORD_BCRYPT);
-        $sql = $this->db->prepare("INSERT INTO usuarios (nome,usuario,senha) VALUES (?,?,?) ");
+        $sql = $this->db->prepare("INSERT INTO usuarios (nome,usuario,senha,idade,descricao,foto,email,cidade,uf,telefone,idInstrumento,idCategoria,idBanda,idSocial) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?) ");
 
-        return $sql->execute([$nome,$usuario,$senhaCriptografada]);
+        return $sql->execute([$nome,$usuario,$senhaCriptografada,$idade,$descricao,$foto,$email,$cidade,$uf,$telefone,$idInstrumento,$idCategoria,$idBanda,$idSocial]);
     }
 
     

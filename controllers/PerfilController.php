@@ -15,9 +15,17 @@ class PerfilController{
     }
 
     public function index(){
-        $sessao = $_SESSION["idUsuario"];
+        $sessao = isset($_SESSION["idUsuario"]) ? $_SESSION["idUsuario"] : 0 ;
         $result_perfil = $this->usuarioModel->getById($sessao);
-    
+        
+        if($sessao > 0 ){
+            $result_perfil = $this->usuarioModel->getById($sessao);
+        }else{
+            $sessao = $_SESSION["usuarioUser"];
+            $result_perfil = $this->usuarioModel->getUsuario($sessao);
+        }
+
+
         $baseUrl = $this->url;
 
         require "views/PerfilView.php";
@@ -69,9 +77,10 @@ class PerfilController{
         
         $baseUrl = $this->url;
         $acao = "editar";
-        require "views/PerfilEditar.php";
+        
+       require "views/PerfilEditar.php";
     }
 
 
-   
+    
 }

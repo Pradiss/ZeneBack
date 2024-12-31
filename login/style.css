@@ -144,6 +144,18 @@ p{
     opacity:0;
     pointer-events: none;
 }
+.card.loginActive .facaCadastro{
+    transform: translateX(0);
+    transition: all .3s .3s;
+    opacity: 1;
+
+}
+
+.card.loginActive .formLogin{
+    transition: all .3s .3s;
+    opacity: 1;
+}
+
 .card.loginActive .formCadastro{
     opacity:0;
     pointer-events: none;
@@ -158,11 +170,11 @@ p{
 /* cadastro active*/
 
 .card.cadastroActive .facaCadastro{
-    opacity:0;
+    opacity: 0;
     pointer-events: none;
 }
 .card.cadastroActive .formLogin{
-    opacity:0;
+    opacity: 0;
     pointer-events: none;
 }
 
@@ -170,3 +182,46 @@ p{
     transform: translateX(-50%);
 }
 
+.card.cadastroActive .facaLogin{
+    transform: translateX(0);
+    transition: all .3s .3s;
+    opacity: 1;
+
+}
+
+.card.cadastroActive .formCadastro{
+    transition: all .3s .3s;
+    opacity: 1;
+}
+
+
+/*Transition*/
+
+.card::after{
+    transition: all .5s;
+}
+
+.facaCadastro{
+    transition: all .3s 0s;
+    transform: translateX(200%);
+
+}
+
+.formLogin{
+    opacity: 0;
+    transition:  all .3s 0;
+}
+
+
+
+
+.facaLogin{
+    transition: all .3s 0s;
+    transform: translateX(-200%);
+
+}
+
+.formCadastro{
+    opacity: 0;
+    transition:  all .3s 0;
+}
